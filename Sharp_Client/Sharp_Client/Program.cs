@@ -38,9 +38,30 @@ namespace Sharp_Client
 
         }
 
+        // Boas -----
         void receiveData()
         {
-            // Boas -----
+            while (connected)
+            {
+                byte[] data = new byte[1024]; // create byte array
+                int receivedData = socket.Receive(data); // int holds amount of characters in array: "1234" = 4
+
+                if (receivedData > 0) // if received something
+                {
+                    Array.Resize(ref data, receivedData); // avoid whitespace by resizing byte array to only hold the amount of characters received
+
+                    string msg = Encoding.ASCII.GetString(data); // convert from ASCII numbers to string
+
+                    if (msg == "exit") // if server exited
+                    {
+                        // stop connection
+                        connected = false;
+                        socket.Close();
+                    }
+
+                    Console.WriteLine("Server: " + msg); // display received message, exit or not
+                }
+            }
         }
 
         void sendData()
