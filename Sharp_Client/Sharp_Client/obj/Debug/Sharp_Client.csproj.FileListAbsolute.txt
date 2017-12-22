@@ -16,3 +16,6 @@ C:\Users\EmilFaerch\Desktop\Sharp_Client\Sharp_Client\obj\Debug\Sharp_Client.pdb
 C:\Users\EmilFaerch\Desktop\Boas MP\Sharp_Client\Sharp_Client\bin\Debug\Sharp_Client.exe.config
 C:\Users\EmilFaerch\Desktop\Boas MP\Sharp_Client\Sharp_Client\obj\Debug\Sharp_Client.exe
 C:\Users\EmilFaerch\Desktop\Boas MP\Sharp_Client\Sharp_Client\obj\Debug\Sharp_Client.pdb
+C:\Users\EmilFaerch\Desktop\Andrej MP\Sharp_Client\Sharp_Client\bin\Debug\Sharp_Client.exe.config
+C:\Users\EmilFaerch\Desktop\Andrej MP\Sharp_Client\Sharp_Client\obj\Debug\Sharp_Client.exe
+C:\Users\EmilFaerch\Desktop\Andrej MP\Sharp_Client\Sharp_Client\obj\Debug\Sharp_Client.pdb

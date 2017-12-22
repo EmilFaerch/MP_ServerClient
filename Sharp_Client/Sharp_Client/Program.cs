@@ -64,9 +64,24 @@ namespace Sharp_Client
             }
         }
 
+        // Andrej -----
         void sendData()
         {
-            // Andrej -----
+            while (connected) // While connected to the server
+            {
+                string text = Console.ReadLine(); // Read the user input from the console
+                byte[] msg = Encoding.ASCII.GetBytes(text); // convert string to an array of bytes
+
+                socket.Send(msg, 0, msg.Length, SocketFlags.None); // Send message to the server with first index 0 and last index is total length of message
+
+                if (text == "exit") // If we wish to exit
+                {
+                    connected = false; // Disable loop ...
+                    socket.Close();     // ... close the socket ...
+
+                    Environment.Exit(0); // ... aand terminate the program!
+                }
+            }
         }
 
 
