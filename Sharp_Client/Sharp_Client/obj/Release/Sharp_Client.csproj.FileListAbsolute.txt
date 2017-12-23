@@ -1,0 +1,5 @@
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Client\Sharp_Client\bin\Release\Sharp_Client.exe.config
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Client\Sharp_Client\bin\Release\Sharp_Client.exe
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Client\Sharp_Client\bin\Release\Sharp_Client.pdb
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Client\Sharp_Client\obj\Release\Sharp_Client.exe
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Client\Sharp_Client\obj\Release\Sharp_Client.pdb

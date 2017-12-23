@@ -31,7 +31,7 @@ namespace Sharp_Server
 
             Console.WriteLine("Waiting for Client connection.");
             self.acc = self.sck.Accept(); // for some reason has to Accept into a new socket before it wants to work
-            Console.WriteLine("Client connected.");
+            Console.WriteLine("Client connected. Start typing!");
 
             self.clientConnected = true; // enable loops
 

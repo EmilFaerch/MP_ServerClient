@@ -43,23 +43,37 @@ namespace Sharp_Client
         {
             while (connected)
             {
-                byte[] data = new byte[1024]; // create byte array
-                int receivedData = socket.Receive(data); // int holds amount of characters in array: "1234" = 4
-
-                if (receivedData > 0) // if received something
+                try // Added for more graceful exit
                 {
-                    Array.Resize(ref data, receivedData); // avoid whitespace by resizing byte array to only hold the amount of characters received
-
-                    string msg = Encoding.ASCII.GetString(data); // convert from ASCII numbers to string
-
-                    if (msg == "exit") // if server exited
+                    if (socket.Connected) // Stops crashes when exiting... sometimes
                     {
-                        // stop connection
-                        connected = false;
-                        socket.Close();
-                    }
+                        byte[] data = new byte[1024]; // create byte array
+                        int receivedData = socket.Receive(data); // int holds amount of characters in array: "1234" = 4
 
-                    Console.WriteLine("Server: " + msg); // display received message, exit or not
+                        if (receivedData > 0) // if received something
+                        {
+                            Array.Resize(ref data, receivedData); // avoid whitespace by resizing byte array to only hold the amount of characters received
+
+                            string msg = Encoding.ASCII.GetString(data); // convert from ASCII numbers to string
+
+                            if (msg == "exit") // if server exited
+                            {
+                                // stop connection
+                                connected = false;
+                                socket.Close();
+                            }
+
+                            Console.WriteLine("Server: " + msg); // display received message, exit or not
+                        }
+                    }
+                }
+                catch (SocketException e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Something went wrong.");
                 }
             }
         }
@@ -69,17 +83,20 @@ namespace Sharp_Client
         {
             while (connected) // While connected to the server
             {
-                string text = Console.ReadLine(); // Read the user input from the console
-                byte[] msg = Encoding.ASCII.GetBytes(text); // convert string to an array of bytes
-
-                socket.Send(msg, 0, msg.Length, SocketFlags.None); // Send message to the server with first index 0 and last index is total length of message
-
-                if (text == "exit") // If we wish to exit
+                if (socket.Connected)
                 {
-                    connected = false; // Disable loop ...
-                    socket.Close();     // ... close the socket ...
+                    string text = Console.ReadLine(); // Read the user input from the console
+                    byte[] msg = Encoding.ASCII.GetBytes(text); // convert string to an array of bytes
 
-                    Environment.Exit(0); // ... aand terminate the program!
+                    socket.Send(msg, 0, msg.Length, SocketFlags.None); // Send message to the server with first index 0 and last index is total length of message
+
+                    if (text == "exit") // If we wish to exit
+                    {
+                        connected = false; // Disable loop ...
+                        socket.Close();     // ... close the socket ...
+
+                        Environment.Exit(0); // ... aand terminate the program
+                    }
                 }
             }
         }

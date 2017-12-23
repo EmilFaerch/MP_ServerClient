@@ -1,0 +1,5 @@
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Server\Sharp_Server\bin\Release\Sharp_Server.exe.config
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Server\Sharp_Server\bin\Release\Sharp_Server.exe
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Server\Sharp_Server\bin\Release\Sharp_Server.pdb
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Server\Sharp_Server\obj\Release\Sharp_Server.exe
+C:\Users\EmilFaerch\Desktop\MP_ServerClient\Sharp_Server\Sharp_Server\obj\Release\Sharp_Server.pdb
