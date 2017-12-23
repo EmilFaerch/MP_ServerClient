@@ -11,6 +11,8 @@ namespace Sharp_Server
 {
     class Program
     {
+        // the threads that sends and receives data
+        Thread receive;
         Thread send;
 
         Socket sck, acc; // 2 sockets
@@ -33,8 +35,11 @@ namespace Sharp_Server
 
             self.clientConnected = true; // enable loops
 
-            self.send = new Thread(self.sendMessage);
+            self.send = new Thread(self.sendMessage); // thread to send data
+            self.receive = new Thread(self.receiveData); // thread to receive data
+
             self.send.Start(); // start send thread
+            self.receive.Start(); // start receive thread
 
         }
 
@@ -55,7 +60,8 @@ namespace Sharp_Server
                         acc.Close();
                         sck.Close();
 
-                        send.Join(); // Stop thread
+                        send.Join(); // Stop threads
+                        receive.Join();
 
                         Environment.Exit(0); // Close program
                     }
@@ -64,6 +70,43 @@ namespace Sharp_Server
                 {
                     Console.WriteLine(e.ToString());
                     Console.WriteLine("Something went wrong"); // Avoid crashing the program
+                }
+            }
+        }
+
+        // David + try-catch above ^
+        void receiveData()
+        {
+            while (clientConnected) // While connected
+            {
+                try // Avoid crashes (hopefully)
+                {
+                    byte[] data = new byte[10000]; // Enable message to contain a lot of bytes
+                    int receivedData = acc.Receive(data); // receive data
+
+                    if (receivedData > 0) // If received anything
+                    {
+                        Array.Resize(ref data, receivedData); // Size down to fit the actual length of gotten message
+
+                        string msg = Encoding.ASCII.GetString(data); // Convert from bytes to string
+
+                        if (msg == "exit") // Stop connection
+                        {
+                            clientConnected = false;
+                            acc.Close(); // Close sockets, and avoid loops with clientConnected by setting false
+                            sck.Close();
+                        }
+
+                        Console.WriteLine("Client: " + msg); // Print gotten message
+                    }
+                }
+                catch (SocketException e) // Specifically called when something is wrong with the Socket
+                {
+                    Console.WriteLine(e.ToString()); // Write the error message
+                }
+                catch (Exception e) // Called for every other crash
+                {
+                    Console.WriteLine(e.ToString()); // Write the error message
                 }
             }
         }

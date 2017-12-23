@@ -19,6 +19,6 @@ D:\OneDrive - Aalborg Universitet\Programming Complex Software\Programs\Sharp_Se
 C:\Users\EmilFaerch\Desktop\Sharp_Server\Sharp_Server\bin\Debug\Sharp_Server.exe.config
 C:\Users\EmilFaerch\Desktop\Sharp_Server\Sharp_Server\obj\Debug\Sharp_Server.exe
 C:\Users\EmilFaerch\Desktop\Sharp_Server\Sharp_Server\obj\Debug\Sharp_Server.pdb
-C:\Users\EmilFaerch\Desktop\Martin MP\Sharp_Server\Sharp_Server\bin\Debug\Sharp_Server.exe.config
-C:\Users\EmilFaerch\Desktop\Martin MP\Sharp_Server\Sharp_Server\obj\Debug\Sharp_Server.exe
-C:\Users\EmilFaerch\Desktop\Martin MP\Sharp_Server\Sharp_Server\obj\Debug\Sharp_Server.pdb
+C:\Users\EmilFaerch\Desktop\David MP\Sharp_Server\Sharp_Server\bin\Debug\Sharp_Server.exe.config
+C:\Users\EmilFaerch\Desktop\David MP\Sharp_Server\Sharp_Server\obj\Debug\Sharp_Server.exe
+C:\Users\EmilFaerch\Desktop\David MP\Sharp_Server\Sharp_Server\obj\Debug\Sharp_Server.pdb
